@@ -135,7 +135,7 @@ function showHistory() {
 
     checkbox.addEventListener("change", (e) => {
       const parentNode = e.target.closest(".task");
-      const taskTitle = parentNode.querySelector(".task_titleNotCompleted");
+      const taskTitle = parentNode.querySelector(".task_title");
       taskTitle.classList.toggle("done");
       parentNode.classList.toggle("completed");
 
@@ -167,13 +167,12 @@ function showHistory() {
 
 function leftItems() {
   let count = 0;
-document.querySelectorAll(".task").forEach(task => {
-  if (!task.classList.contains("completed")) {
-    count++;
-  }
-});
+  document.querySelectorAll(".task").forEach((task) => {
+    if (!task.classList.contains("completed")) {
+      count++;
+    }
+  });
 
-itemsLeft.textContent = `${count} items left`;
-
+  itemsLeft.textContent = `${count} items left`;
 }
 showHistory();
